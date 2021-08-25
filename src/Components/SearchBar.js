@@ -37,9 +37,6 @@ const styles = StyleSheet.create({
         flexDirection : "row",
     },
     inputStyle : {
-        // borderColor: "orange",
-        
-        // borderWidth : 3,
         flex : 1,
         fontSize : 18
     },

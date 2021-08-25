@@ -5,16 +5,6 @@ import SearchScreen from './src/Screens/SearchScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-// const App = () => {
-//   return (
-//     <View>
-//       <Text>ABC</Text>
-//     </View>
-//   )
-// }
-
-// export default App
-
 const Stack = createNativeStackNavigator();
 
 function App() {
@@ -29,27 +19,3 @@ function App() {
 
 export default App;
 
-// const navigator = createStackNavigator({
-//   Search : SearchScreen
-// },
-// {
-//   initialRouteName: "Search",
-//   defaultNavigationOptions : {
-//     title : "Business Search"
-//   }
-// }
-
-// )
-
-// const Stack = createStackNavigator();
-
-// function MyStack() {
-//   return (
-//     <Stack.Navigator>
-//       <Stack.Screen name="ScreenSearch" component={SearchScreen} />
-//     </Stack.Navigator>
-//   );
-// }
-
-
-// export default createAppContainer(MyStack)

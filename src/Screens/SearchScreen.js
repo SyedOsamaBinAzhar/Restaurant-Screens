@@ -9,6 +9,10 @@ const SearchScreen =  () => {
     const  [term,setTerm] = useState("")
     const [searchApi, results , errorMessage] = useResults()
 
+    const filterResultsByIntelligence = (intelligence) => {
+        return results.filter(result => result.intelligence === intelligence)
+    }
+
     return (
         <View >
             {errorMessage ? <Text>{errorMessage}</Text> : null}
@@ -17,17 +21,18 @@ const SearchScreen =  () => {
             onTermChange = {(abc) => setTerm(abc)}
             onTermSubmit = {() => searchApi()}
             />
-             <ResultsList title="Cost Effective"/>
-            <ResultsList title="Bit Pricier"/>
-            <ResultsList title="Big Spender"/>
+            <Text>We have {results.length} values</Text>
+
+             <ResultsList results = {filterResultsByIntelligence(3)} title="Cost Effective"/>
+            <ResultsList results = {filterResultsByIntelligence(4)} title="Bit Pricier"/>
+            <ResultsList results = {filterResultsByIntelligence(5)} title="Big Spender"/>
             {   
                 results.map((element) => {
                    return (
                     <View style= {styles.dataStyling}>
-                    {/* <Text  key={Math.random()}>Adaptability : {element.adaptability}</Text>
-                    <Text key={Math.random()}>description : {element.description}</Text>
-                    <Text  key={Math.random()}>intelligence : {element.intelligence}</Text> */}
-                    {/* <Text>We have {results.length} values</Text> */}
+                    {/* {/* <Text  key={Math.random()}>Adaptability : {element.adaptability}</Text> */}
+                    {/* <Text key={Math.random()}>description : {element.description}</Text> */}
+                    {/* <Text  key={Math.random()}>intelligence : {element.intelligence}</Text>   */}
                    
 
 
@@ -43,9 +48,9 @@ const SearchScreen =  () => {
 }
 
 const styles = StyleSheet.create({
-    dataStyling :{
-        borderColor : "red",
-        borderWidth : 3
-    }
+    // dataStyling :{
+    //     borderColor : "red",
+    //     borderWidth : 3
+    // }
 })
 export default SearchScreen

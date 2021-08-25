@@ -11,16 +11,19 @@ const UseResults = () => {
             
             const response = await axios.get('https://api.thecatapi.com/v1/breeds',{
                 params : {
-                    limit : 50,
+                    limit : 70,
 
                 }
             });
             const list = response.data;
-              for(var i = 0; i < 5; i++) {
+            console.log(list.length)
+              for(var i = 0; i < 25; i++) {
                 const listObject = {
                     adaptability : list[i].adaptability,
                     description : list[i].description,
-                    intelligence : list[i].intelligence
+                    intelligence : list[i].intelligence,
+                    name : list[i].name,
+                    id : list[i].id
                 }
                 setResults((prevState) => ([
                     ...prevState,listObject
@@ -35,9 +38,10 @@ const UseResults = () => {
       }
  
       useEffect(() => {
-      console.log("hello")
         searchApi()
+        console.log(results)
       }, [])
+
     return [searchApi, results,errorMessage ]
 }
 

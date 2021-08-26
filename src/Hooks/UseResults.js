@@ -16,14 +16,14 @@ const UseResults = () => {
                 }
             });
             const list = response.data;
-            console.log(list.length)
               for(var i = 0; i < 25; i++) {
                 const listObject = {
                     adaptability : list[i].adaptability,
                     description : list[i].description,
                     intelligence : list[i].intelligence,
                     name : list[i].name,
-                    id : list[i].id
+                    id : list[i].id,
+                    image : list[i].image.url
                 }
                 setResults((prevState) => ([
                     ...prevState,listObject
@@ -39,7 +39,6 @@ const UseResults = () => {
  
       useEffect(() => {
         searchApi()
-        console.log(results)
       }, [])
 
     return [searchApi, results,errorMessage ]
